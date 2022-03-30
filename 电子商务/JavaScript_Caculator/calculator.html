@@ -1,0 +1,248 @@
+
+<html lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+    <title> calculator </title>
+    <!-- 2.内嵌式的js -->
+    <script>
+        alert("欢迎使用网页版计算器")
+    </script>
+    </head>
+    
+    <body>
+    <!-- 1.行内式的js -->
+    <CENTER>
+    <FORM name="Keypad" action="">
+   
+    <TABLE>
+    <B>
+    <TABLE border=2 width=379 height=60 cellpadding=1 cellspacing=5>
+    <!-- 表头 -->
+    <TR>
+    <TD  colspan=5 align=middle width="90"> 电子商务网页计算机应用 </TD>
+    </TR>
+
+    <!-- 导航工具栏 -->
+    <TR>
+    <TD  align=middle width="54">
+    <img src="SCUT.png"  alt="华工校徽"  height="50" width="50" />
+    </TD>
+    <TD  align=middle width="54">
+    <input type="button" value="说明"  onclick = "alert('网页计算机测试 writen by 松仔')">
+    </TD>
+    <TD  align=middle width="54">
+    <input type="button" value="help"  onclick = "alert('鼠标单击界面按钮')">
+    </TD>
+    <TD  colspan=2 align=middle width="90"> 版权声明 </TD>
+    </TR>
+
+    <!-- 第一行 -->
+    <TR>
+    <TD colspan=3 align=middle width="192">
+    <INPUT name="ReadOut" type="Text" size=27 value="0" width=100%>
+    </TD>
+    <TD align=middle width="54">
+    <INPUT name="btnClear" type="Button" value="  C  " onclick="Clear()">
+    <!-- <! // 在鼠标点击时触发Clear( )函数，对计算器清空。>  -->
+    </TD> 
+    <TD align=middle width="73"> 
+    <INPUT name="btnClearEntry" type="Button" value="  CE " onclick="ClearEntry()"> 
+    <!-- <! // 在鼠标点击时触发ClearEntry( )函数，清除本次的运算操作数。>  -->
+    </TD> 
+    </TR> 
+
+    <!-- 第二行 -->
+    <TR> 
+    <!-- <! // 以下NumPressed(?)函数在鼠标点击时触发，处理输入的数据。>  -->
+    <TD align=middle width="54"> 
+    <INPUT name="btnSeven" type="Button" value="  7  " onclick="NumPressed(7)"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnEight" type="Button" value="  8  " onclick="NumPressed(8)"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnNine" type="Button" value="  9  " onclick="NumPressed(9)"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnNeg" type="Button" value=" +/- " onclick="Neg()"> 
+    <!-- <! // Neg( )函数为输入的数据选择正负符号。>  -->
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnPercent" type="Button" value="  % " onclick="Percent()"> 
+    </TD> 
+    </TR> 
+
+    <!-- 第三行 -->
+    <TR> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnFour" type="Button" value="  4  " onclick="NumPressed(4)"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnFive" type="Button" value="  5  " onclick="NumPressed(5)"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnSix" type="Button" value="  6  " onclick="NumPressed(6)"> 
+    </TD> 
+    <!-- <! //以下Operation('?')函数在鼠标点击时触发，处理运算的操作符。>  -->
+    <TD align=middle width="54"><INPUT name="btnPlus" type="Button" value="  +  " onclick="Operation('+')"> 
+    </TD> 
+    <TD align=middle width="73"><INPUT name="btnMinus" type="Button" value="   -   " onclick="Operation('-')"> 
+    </TD> 
+    </TR> 
+
+    <!-- 第四行 -->
+    <TR> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnOne" type="Button" value="  1  " onclick="NumPressed(1)"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnTwo" type="Button" value="  2  " onclick="NumPressed(2)"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnThree" type="Button" value="  3  " onclick="NumPressed(3)"> 
+    </TD> 
+    <TD align=middle width="54"><INPUT name="btnMultiply" type="Button" value="  *  " onclick="Operation('*')"> 
+    </TD> 
+    <TD align=middle width="73"><INPUT name="btnDivide" type="Button" value="   /   " onclick="Operation('/')"> 
+    </TD> 
+    </TR> 
+
+    <!-- 第五行 -->
+    <TR> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnZero" type="Button" value="  0  " onclick="NumPressed(0)"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnDecimal" type="Button" value="   .  " onclick="Decimal()"> 
+    <!-- 在鼠标点击时触发Decimal( )函数，接收小数的输入。 -->
+    </TD> 
+    <TD colspan=2 width="126"> 
+    </TD> 
+    <TD align=middle width="54"> 
+    <INPUT name="btnEquals" type="Button" value="  =  " onclick="Operation('=')"> 
+    </TD> 
+    </TR> 
+   
+   <!-- 第六行 -->
+    <TR> 
+    <TD  colspan=2 align=middle width="90"> 2进制表达 </TD>
+    <TD colspan=3 align=middle width="192">
+    <INPUT name="Hex" type="Button" value="  2进制  " onclick="alert(parseInt(FKeyPad.ReadOut.value,10).toString(2))"> 
+    </TD>
+    </TR>
+
+   <!-- 第七行 -->
+   <TR> 
+   <TD  colspan=2 align=middle width="90"> 8进制表达 </TD>
+   <TD colspan=3 align=middle width="192">
+   <INPUT name="Hex" type="Button" value="  8进制  " onclick="alert(parseInt(FKeyPad.ReadOut.value,10).toString(8))"> 
+   </TD>
+   </TR>
+      
+
+   <!-- 第八行 -->
+   <TR> 
+   <TD  colspan=2 align=middle width="90"> 16进制表达 </TD>
+   <TD colspan=3 align=middle width="192">
+   <INPUT name="Hex" type="Button" value="  16进制  " onclick="alert(parseInt(FKeyPad.ReadOut.value,10).toString(16))"> 
+   </TD>
+   </TR>
+      
+    </TABLE> 
+    </TABLE> 
+    </B> 
+    </FORM> 
+    </CENTER> 
+    <SCRIPT LANGUAGE="JavaScript"> 
+
+   
+    //定义相关变量 
+    var FKeyPad = document.Keypad; 
+    var Accum = 0;//运算结果 
+    var FlagNewNum = false; //判断是否可以输入新的数据的布尔变量 
+    var PendingOp = ""; //运算操作符 
+    var a = 1;
+     
+    //接收并显示输入数据的函数 
+    function NumPressed (Num) { 
+    if (FlagNewNum) { 
+    FKeyPad.ReadOut.value  = Num; 
+    FlagNewNum = false; 
+       } 
+    else { 
+    if (FKeyPad.ReadOut.value == "0") 
+    FKeyPad.ReadOut.value = Num; 
+    else 
+    FKeyPad.ReadOut.value += Num; 
+       } 
+    } 
+     
+    //判断运算符的函数 
+    function Operation (Op) { 
+    var Readout = FKeyPad.ReadOut.value; 
+    if (FlagNewNum && PendingOp != "="); 
+    else 
+    { 
+    FlagNewNum = true; 
+    if ( '+' == PendingOp ) 
+    Accum += parseFloat(Readout); 
+    else if ( '-' == PendingOp ) 
+    Accum -= parseFloat(Readout); 
+    else if ( '/' == PendingOp ) 
+    Accum /= parseFloat(Readout); 
+    else if ( '*' == PendingOp ) 
+    Accum *= parseFloat(Readout); 
+    else 
+    Accum = parseFloat(Readout); 
+    FKeyPad.ReadOut.value = Accum; 
+    PendingOp = Op; 
+       } 
+    } 
+     
+    //判断小数输入的函数 
+    function Decimal () { 
+    var curReadOut = FKeyPad.ReadOut.value; 
+    if (FlagNewNum) { 
+    curReadOut = "0."; 
+    FlagNewNum = false; 
+       } 
+    else 
+    { 
+    if (curReadOut.indexOf(".") == -1) 
+    curReadOut += "."; 
+       } 
+    FKeyPad.ReadOut.value = curReadOut; 
+    } 
+     
+    //进行本次输入的数据清空的函数 
+    function ClearEntry () { 
+    FKeyPad.ReadOut.value = "0"; 
+    FlagNewNum = true; 
+    } 
+     
+    //进行计算器清空的函数 
+    function Clear () { 
+    Accum = 0; 
+    PendingOp = ""; 
+    ClearEntry(); 
+    } 
+     
+    //处理负数的函数 
+    function Neg () { 
+    FKeyPad.ReadOut.value = parseFloat(FKeyPad.ReadOut.value) * -1; 
+    } 
+
+    //处理百分数的函数 
+    function Percent () { 
+      FKeyPad.ReadOut.value = (parseFloat(FKeyPad.ReadOut.value) / 100) * parseFloat(Accum); 
+    } 
+
+    // End --> 
+    </SCRIPT> 
+     
+    </body> 
+     
+    </html> 
+    
